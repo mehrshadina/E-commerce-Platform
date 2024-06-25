@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+{% block title %}New Order{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>New Order</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="product_id">Product</label>
+        <select name="product_id" id="product_id">
+            {% for product in products %}
+            <option value="{{ product.id }}">{{ product.name }} - ${{ product.price }} (Stock: {{ product.stock }})</option>
+            {% endfor %}
+        </select>
+        <label for="quantity">Quantity</label>
+        <input type="number" name="quantity" id="quantity" min="1" required>
+        <label for="use_wallet">
+            <input type="checkbox" name="use_wallet" id="use_wallet"> Use Wallet Balance
+        </label>
+        <label for="discount_code">Discount Code</label>
+        <input type="text" name="discount_code" id="discount_code">
+        <div class="messages">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert {{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <button type="submit">Place Order</button>
+    </form>
+</div>
+{% endblock %}

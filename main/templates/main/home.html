@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Welcome to Our Website</h1>
+    <p>This is a platform where admins can manage products and customers can place orders.</p>
+
+    <div class="help-section">
+        <h2>Help</h2>
+        <p>If you are an admin, you can manage products, view order history, and more.</p>
+        <p>If you are a customer, you can place orders, view your order history, and manage your account.</p>
+    </div>
+
+    <div class="links-section">
+        <h2>Quick Links</h2>
+        <ul>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

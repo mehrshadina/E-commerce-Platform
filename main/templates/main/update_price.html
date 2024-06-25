@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+{% block title %}Update Price{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Update Product Price</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="product_id">Product</label>
+        <select name="product_id" id="product_id">
+            {% for product in products %}
+            <option value="{{ product.id }}">{{ product.name }}</option>
+            {% endfor %}
+        </select>
+        <label for="price">New Price</label>
+        <input type="number" name="price" id="price" step="0.01" required>
+        <button type="submit">Update Price</button>
+    </form>
+</div>
+{% endblock %}

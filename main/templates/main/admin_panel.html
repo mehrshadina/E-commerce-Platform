@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+{% block title %}Admin Panel{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Admin Panel</h2>
+    <ul>
+        <li><a href="{% url 'add_product' %}">Add New Product</a></li>
+        <li><a href="{% url 'update_stock' %}">Update Product Stock</a></li>
+        <li><a href="{% url 'update_price' %}">Update Product Price</a></li>
+        <li><a href="{% url 'change_password' %}">Change Password</a></li>
+    </ul>
+</div>
+{% endblock %}

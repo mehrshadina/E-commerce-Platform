@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+{% block title %}Customer Panel{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Welcome, {{ user.username }}</h2>
+    <p>Wallet Balance: ${{ wallet_balance }}</p>
+    <ul>
+        <li><a href="{% url 'new_order' %}">Place a New Order</a></li>
+        <li><a href="{% url 'order_history' %}">Order History</a></li>
+        <li><a href="{% url 'change_password' %}">Change Password</a></li>
+    </ul>
+</div>
+{% endblock %}
